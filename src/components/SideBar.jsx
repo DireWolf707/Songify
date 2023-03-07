@@ -33,7 +33,7 @@ const SideBar = ({ open, setOpen }) => {
       // sx={{ overflow: "auto" }}
       >
         {links.map((link, idx) => (
-          <Link key={idx} to={link.to} onClick={()=>setOpen(false)}>
+          <Link key={idx} to={link.to} onClick={() => open && setOpen(false)}>
             <ListItemButton selected={location.pathname === link.to}>
               <ListItemIcon>{link.icon}</ListItemIcon>
               <ListItemText primary={link.name} />
