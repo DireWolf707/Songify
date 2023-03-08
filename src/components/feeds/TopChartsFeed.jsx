@@ -1,5 +1,6 @@
 import React from "react"
 import { Stack, Card, CardMedia, CardContent, Typography } from "@mui/material"
+import FeedSkeleton from "../skeletons/FeedSkeleton"
 
 const TopChartsFeed = ({ songs, isFetching }) => {
   return (
@@ -13,7 +14,7 @@ const TopChartsFeed = ({ songs, isFetching }) => {
       sx={{ m: "10px", overflow: "auto" }}
     >
       {isFetching ? (
-        <></>
+        <FeedSkeleton />
       ) : (
         songs.map(({ trackMetadata: song, chartEntryData: { currentRank } }) => (
           <Card

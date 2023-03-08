@@ -1,6 +1,7 @@
 import React from "react"
 import { Typography, Stack } from "@mui/material"
 import { numFormat } from "../../utils/numFormat"
+import TopArtistsFeedSkeleton from "../skeletons/TopArtistsFeedSkeleton"
 
 const TopArtistsFeed = ({ artists, isFetching, limit = -1 }) => {
   return (
@@ -14,7 +15,7 @@ const TopArtistsFeed = ({ artists, isFetching, limit = -1 }) => {
       sx={{ m: "10px", overflow: "auto" }}
     >
       {isFetching ? (
-        <></>
+        <TopArtistsFeedSkeleton units={limit != -1 ? limit : 200} />
       ) : (
         artists.slice(0, limit).map(
           (artist) =>
@@ -22,7 +23,13 @@ const TopArtistsFeed = ({ artists, isFetching, limit = -1 }) => {
               <Stack
                 key={artist.rank}
                 alignItems="center"
-                sx={{ width: { xs: "100%", sm: "100%", md: "400px" }, bgcolor: "rgba(0,0,0,0.3)", py: "6px", cursor: "default" }}
+                sx={{
+                  width: { xs: "100%", sm: "100%", md: "400px" },
+                  bgcolor: "rgba(0,0,0,0.3)",
+                  py: "6px",
+                  px: "16px",
+                  cursor: "default",
+                }}
               >
                 <Typography variant="h6" fontWeight="bold" color="#00FFFF">
                   {artist.artist}

@@ -1,6 +1,7 @@
 import React from "react"
 import { Stack, Card, CardMedia, CardContent, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
+import FeedSkeleton from "../skeletons/FeedSkeleton"
 
 const ArtistTopChartsFeed = ({ songs, isFetching, feedOverflow = false }) => {
   return (
@@ -14,7 +15,7 @@ const ArtistTopChartsFeed = ({ songs, isFetching, feedOverflow = false }) => {
       sx={{ m: "10px", overflow: feedOverflow && "auto" }}
     >
       {isFetching ? (
-        <></>
+        <FeedSkeleton units={10} artistField={false} />
       ) : (
         songs.map(({ track: song }) => (
           <Card
