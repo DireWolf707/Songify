@@ -4,19 +4,20 @@ import { useSelector } from "react-redux"
 import { useSearchSongsQuery } from "../store"
 import Feed from "../components/feeds/Feed"
 import TopPlays from "../components/TopPlays"
-import { Stack } from "@mui/material"
+import { Stack, useMediaQuery } from "@mui/material"
 
 const Home = () => {
   const { selectedGenre } = useSelector((store) => store.data)
   const { data, isFetching } = useSearchSongsQuery(selectedGenre)
+  const feedOverflow = useMediaQuery((theme) => theme.breakpoints.up("lg"))
 
   return (
     <Stack flexGrow={1} sx={{ flexDirection: { md: "column", lg: "row" }, overflow: "auto" }}>
-      <Stack flexGrow={1} sx={{ overflow: "auto", flexShrink: { xs: 0, lg: 1 } }}>
+      <Stack flexGrow={1} sx={{ overflow: feedOverflow && "auto" }}>
         <HomeHeader />
-        <Feed songs={data} isFetching={isFetching} />
+        <Feed songs={data} isFetching={isFetching} feedOverflow={feedOverflow} />
       </Stack>
-      <TopPlays />
+      <TopPlays feedOverflow={feedOverflow} />
     </Stack>
   )
 }

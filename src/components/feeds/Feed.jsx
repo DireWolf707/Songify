@@ -1,7 +1,8 @@
 import React from "react"
 import { Stack, Card, CardMedia, CardContent, Typography } from "@mui/material"
+import { Link } from "react-router-dom"
 
-const Feed = ({ songs, isFetching }) => {
+const Feed = ({ songs, isFetching, feedOverflow = true }) => {
   return (
     <Stack
       flexGrow={1}
@@ -10,7 +11,7 @@ const Feed = ({ songs, isFetching }) => {
       justifyContent="center"
       alignItems="center"
       gap={2}
-      sx={{ m: "10px", overflow: "auto" }}
+      sx={{ m: "10px", overflow: feedOverflow && "auto" }}
     >
       {isFetching ? (
         <></>
@@ -27,12 +28,16 @@ const Feed = ({ songs, isFetching }) => {
             <CardMedia component="img" height="160px" image={song?.albumOfTrack?.coverArt?.sources[0]?.url} sx={{ p: "7px 7px 0 7px" }} />
 
             <CardContent>
-              <Typography variant="body1" fontWeight="bold">
-                {song?.name.slice(0, 50)}
-              </Typography>
-              <Typography variant="subtitle2" color="#B2BEB5">
-                {song?.artists?.items[0]?.profile?.name.slice(0, 50)}
-              </Typography>
+              <Link to={`/song/${song.id}`}>
+                <Typography variant="body1" fontWeight="bold">
+                  {song?.name.slice(0, 50)}
+                </Typography>
+              </Link>
+              <Link to={`/artist/${song?.artists?.items[0]?.uri?.split(":")[2]}`}>
+                <Typography variant="subtitle2" color="#B2BEB5">
+                  {song?.artists?.items[0]?.profile?.name.slice(0, 50)}
+                </Typography>
+              </Link>
             </CardContent>
           </Card>
         ))
