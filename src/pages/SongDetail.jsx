@@ -10,10 +10,10 @@ const SongDetail = () => {
 
   return (
     <Stack flexGrow={1} sx={{ overflow: "auto" }}>
-      <Stack alignItems="center" gap={4} sx={{ bgcolor: "rgba(0,0,0,0.2)", m: "auto", p: "26px" }}>
+      <Stack alignItems="center" gap={2} sx={{ bgcolor: "rgba(0,0,0,0.2)", m: "auto", p: "26px" }}>
         <Box component="img" src={data?.tracks[0]?.album?.images[0].url} sx={{ height: "180px", width: "180px", borderRadius: "100%" }} />
 
-        <Stack gap={1}>
+        <Stack alignItems="center" gap={1}>
           <Typography variant="h4" fontWeight="bold">
             {data?.tracks[0]?.name}
           </Typography>

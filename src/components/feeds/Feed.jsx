@@ -20,8 +20,7 @@ const Feed = ({ songs, isFetching, feedOverflow = true }) => {
           <Card
             key={song.id}
             sx={{
-              height: "260px",
-              width: "240px",
+              width: { xs: "300px", sm: "240px" },
               bgcolor: "rgba(0,0,0,0.2)",
             }}
           >
