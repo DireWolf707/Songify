@@ -3,8 +3,11 @@ import { Stack, TextField, useMediaQuery, IconButton } from "@mui/material"
 import SearchIcon from "@mui/icons-material/Search"
 import MenuIcon from "@mui/icons-material/Menu"
 import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { toggleSidebar } from "../store"
 
-const SearchBar = ({ setOpen }) => {
+const SearchBar = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const [searchTerm, setSearchTerm] = useState("")
   const isSmall = useMediaQuery((theme) => theme.breakpoints.only("xs"))
@@ -23,7 +26,7 @@ const SearchBar = ({ setOpen }) => {
       flexDirection="row"
       alignItems="center"
       gap={1.2}
-      sx={{ height: "40px", mx: "16px", my: "8px" }}
+      sx={{ height: "40px", mx: "16px", my: "8px",  }}
     >
       <SearchIcon sx={{ fill: "#00FFFF" }} />
 
@@ -40,7 +43,7 @@ const SearchBar = ({ setOpen }) => {
       />
 
       {isSmall && (
-        <IconButton onClick={() => setOpen(true)}>
+        <IconButton onClick={() => dispatch(toggleSidebar(true))}>
           <MenuIcon fontSize="large" />
         </IconButton>
       )}
