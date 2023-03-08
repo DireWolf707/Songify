@@ -2,7 +2,7 @@ import React from "react"
 import { Stack } from "@mui/material"
 import SideBar from "./components/SideBar"
 import { Routes, Route } from "react-router-dom"
-import { TopArtists, TopCharts, Search, Home, AroundYou } from "./pages"
+import { TopArtists, TopCharts, Search, Home, AroundYou, SongDetail, ArtistDetail } from "./pages"
 import SearchBar from "./components/SearchBar"
 
 const App = () => {
@@ -24,6 +24,8 @@ const App = () => {
           <Route path="/around-you" element={<AroundYou />} />
           <Route path="/top-artists" element={<TopArtists />} />
           <Route path="/top-charts" element={<TopCharts />} />
+          <Route path="/song/:songId" element={<SongDetail />} />
+          <Route path="/artist/:artistId" element={<ArtistDetail />} />
         </Routes>
       </Stack>
     </Stack>
