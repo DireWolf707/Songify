@@ -1,5 +1,6 @@
 import React from "react"
 import { Typography, Stack } from "@mui/material"
+import { numFormat } from "../../utils/numFormat"
 
 const TopArtistsFeed = ({ artists, isFetching, limit = -1 }) => {
   return (
@@ -18,7 +19,11 @@ const TopArtistsFeed = ({ artists, isFetching, limit = -1 }) => {
         artists.slice(0, limit).map(
           (artist) =>
             artist.followers && (
-              <Stack key={artist.rank} alignItems="center" sx={{ width: "400px", bgcolor: "rgba(0,0,0,0.3)", py: "6px" }}>
+              <Stack
+                key={artist.rank}
+                alignItems="center"
+                sx={{ width: { xs: "100%", sm: "100%", md: "400px" }, bgcolor: "rgba(0,0,0,0.3)", py: "6px", cursor: "default" }}
+              >
                 <Typography variant="h6" fontWeight="bold" color="#00FFFF">
                   {artist.artist}
                 </Typography>
@@ -27,10 +32,7 @@ const TopArtistsFeed = ({ artists, isFetching, limit = -1 }) => {
                 </Typography>
                 <Typography variant="body1">
                   Followers :&nbsp;
-                  {Intl.NumberFormat("en-US", {
-                    notation: "compact",
-                    maximumFractionDigits: 2,
-                  }).format(artist.followers)}
+                  {numFormat(artist.followers)}
                 </Typography>
               </Stack>
             )
