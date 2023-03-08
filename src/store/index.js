@@ -2,21 +2,21 @@ import { configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
 import { dataReducer, changeGenre, toggleSidebar } from "./slices/dataSlice"
 import {
-  shazamApi,
+  spotifyApi,
   useFetchArtistQuery,
   useFetchTopArtistsQuery,
   useFetchTopSongsQuery,
   useFetchTrackLyricsQuery,
   useFetchTrackQuery,
   useSearchSongsQuery,
-} from "./apis/shazamApi"
+} from "./apis/spotifyApi"
 
 export const store = configureStore({
   reducer: {
     data: dataReducer,
-    [shazamApi.reducerPath]: shazamApi.reducer,
+    [spotifyApi.reducerPath]: spotifyApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(shazamApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(spotifyApi.middleware),
 })
 
 setupListeners(store.dispatch)

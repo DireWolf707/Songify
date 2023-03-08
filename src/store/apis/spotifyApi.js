@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
-export const shazamApi = createApi({
-  reducerPath: "shazam",
+export const spotifyApi = createApi({
+  reducerPath: "spotify",
 
   baseQuery: fetchBaseQuery({
     baseUrl: "https://spotify81.p.rapidapi.com",
@@ -57,7 +57,7 @@ export const shazamApi = createApi({
           return {
             url: "/track_lyrics",
             method: "GET",
-            params: { ids: _trackId },
+            params: { id: _trackId },
           }
         },
       }),
@@ -82,4 +82,4 @@ export const {
   useFetchTrackLyricsQuery,
   useFetchTrackQuery,
   useSearchSongsQuery,
-} = shazamApi
+} = spotifyApi
