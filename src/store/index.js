@@ -9,6 +9,7 @@ import {
   useFetchTrackLyricsQuery,
   useFetchTrackQuery,
   useSearchSongsQuery,
+  useLazyFetchTopSongsQuery,
 } from "./apis/spotifyApi"
 
 export const store = configureStore({
@@ -28,6 +29,7 @@ export {
   useFetchTrackLyricsQuery,
   useFetchTrackQuery,
   useSearchSongsQuery,
+  useLazyFetchTopSongsQuery,
   changeGenre,
   toggleSidebar,
 }

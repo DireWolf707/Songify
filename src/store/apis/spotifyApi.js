@@ -79,6 +79,7 @@ export const {
   useFetchArtistQuery,
   useFetchTopArtistsQuery,
   useFetchTopSongsQuery,
+  useLazyFetchTopSongsQuery,
   useFetchTrackLyricsQuery,
   useFetchTrackQuery,
   useSearchSongsQuery,
