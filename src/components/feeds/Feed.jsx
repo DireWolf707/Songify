@@ -24,7 +24,7 @@ const Feed = ({ songs, isFetching, feedOverflow = true }) => {
               bgcolor: "rgba(0,0,0,0.2)",
             }}
           >
-            <CardMedia component="img" height="160px" image={song?.albumOfTrack?.coverArt?.sources[0]?.url} sx={{ p: "7px 7px 0 7px" }} />
+            <CardMedia component="img" height="200px" image={song?.albumOfTrack?.coverArt?.sources[0]?.url} sx={{ p: "7px 7px 0 7px" }} />
 
             <CardContent>
               <Link to={`/song/${song.id}`}>

@@ -20,12 +20,11 @@ const ArtistTopChartsFeed = ({ songs, isFetching, feedOverflow = false }) => {
           <Card
             key={song.id}
             sx={{
-              height: "240px",
-              width: "240px",
+              width: { xs: "300px", sm: "240px" },
               bgcolor: "rgba(0,0,0,0.2)",
             }}
           >
-            <CardMedia component="img" height="160px" image={song?.album?.coverArt?.sources[0]?.url} sx={{ p: "7px 7px 0 7px" }} />
+            <CardMedia component="img" height="200px" image={song?.album?.coverArt?.sources[0]?.url} sx={{ p: "7px 7px 0 7px" }} />
 
             <CardContent>
               <Link to={`/song/${song.id}`}>
