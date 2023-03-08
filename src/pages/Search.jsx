@@ -6,7 +6,7 @@ import Feed from "../components/feeds/Feed"
 
 const Search = () => {
   const { searchTerm } = useParams()
-  const { data, isFetching } = useSearchSongsQuery(searchTerm)
+  const { data, isFetching, isError } = useSearchSongsQuery(searchTerm)
 
   return (
     <Stack flexGrow={1} sx={{ overflow: "auto" }}>
@@ -18,7 +18,7 @@ const Search = () => {
           {searchTerm}
         </Typography>
       </Stack>
-      <Feed songs={data} isFetching={isFetching} />
+      <Feed songs={data} isFetching={isFetching || isError} />
     </Stack>
   )
 }
