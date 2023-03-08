@@ -2,7 +2,7 @@ import React from "react"
 import { Stack, Card, CardMedia, CardContent, Typography } from "@mui/material"
 import FeedSkeleton from "../skeletons/FeedSkeleton"
 
-const TopChartsFeed = ({ songs, isFetching }) => {
+const TopChartsFeed = ({ songs, isFetching, ranked = true }) => {
   return (
     <Stack
       flexGrow={1}
@@ -14,7 +14,7 @@ const TopChartsFeed = ({ songs, isFetching }) => {
       sx={{ m: "10px", overflow: "auto" }}
     >
       {isFetching ? (
-        <FeedSkeleton />
+        <FeedSkeleton rankField={ranked} />
       ) : (
         songs.map(({ trackMetadata: song, chartEntryData: { currentRank } }) => (
           <Card
@@ -33,9 +33,11 @@ const TopChartsFeed = ({ songs, isFetching }) => {
               <Typography variant="subtitle1" color="#B2BEB5">
                 {song?.artists[0]?.name.slice(0, 50)}
               </Typography>
-              <Typography variant="subtitle2" fontWeight="bold" color="#B2BEB5">
-                Current Rank : {currentRank}
-              </Typography>
+              {ranked && (
+                <Typography variant="subtitle2" fontWeight="bold" color="#B2BEB5">
+                  Current Rank : {currentRank}
+                </Typography>
+              )}
             </CardContent>
           </Card>
         ))

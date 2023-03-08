@@ -1,7 +1,7 @@
 import React from "react"
 import { Card, CardContent, Skeleton, Typography } from "@mui/material"
 
-const FeedSkeleton = ({ units = 20, artistField = true }) => {
+const FeedSkeleton = ({ units = 20, artistField = true, rankField = false }) => {
   return (
     <>
       {Array(units)
@@ -22,6 +22,11 @@ const FeedSkeleton = ({ units = 20, artistField = true }) => {
               </Typography>
               {artistField && (
                 <Typography variant="subtitle2" color="#B2BEB5">
+                  <Skeleton />
+                </Typography>
+              )}
+              {rankField && (
+                <Typography variant="subtitle2" fontWeight="bold" color="#B2BEB5">
                   <Skeleton />
                 </Typography>
               )}

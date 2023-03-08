@@ -18,7 +18,7 @@ const AroundYou = () => {
       <Typography variant="h4" fontWeight="bold" p="24px">
         Around You
       </Typography>
-      <TopChartsFeed songs={data} isFetching={isUninitialized || isFetching || isError} />
+      <TopChartsFeed songs={data} isFetching={isUninitialized || isFetching || isError} ranked={false} />
     </>
   )
 }

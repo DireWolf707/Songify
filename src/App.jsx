@@ -16,7 +16,7 @@ const App = () => {
       }}
     >
       <SideBar />
-      <Stack flexGrow={1}>
+      <Stack flexGrow={1} sx={{ overflow: "auto" }}>
         <SearchBar />
         <Routes>
           <Route path="/" element={<Home />} />

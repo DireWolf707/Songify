@@ -3,7 +3,7 @@ import { Stack, Card, CardMedia, CardContent, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
 import FeedSkeleton from "../skeletons/FeedSkeleton"
 
-const ArtistTopChartsFeed = ({ songs, isFetching, feedOverflow = false }) => {
+const ArtistTopChartsFeed = ({ songs, isFetching, feedOverflow = true }) => {
   return (
     <Stack
       flexGrow={1}
