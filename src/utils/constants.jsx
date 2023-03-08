@@ -22,7 +22,7 @@ export const genres = [
 
 export const links = [
   { name: "Discover", to: "/", icon: <HomeOutlinedIcon sx={{ fill: "#00FFFF" }} /> },
-  // { name: "Around You", to: "/around-you", icon: <InsertPhotoOutlinedIcon sx={{ fill: "#00FFFF" }} /> },
+  { name: "Around You", to: "/around-you", icon: <InsertPhotoOutlinedIcon sx={{ fill: "#00FFFF" }} /> },
   { name: "Top Artists", to: "/top-artists", icon: <GroupsOutlinedIcon sx={{ fill: "#00FFFF" }} /> },
-  // { name: "Top Charts", to: "/top-charts", icon: <TagOutlinedIcon sx={{ fill: "#00FFFF" }} /> },
+  { name: "Top Charts", to: "/top-charts", icon: <TagOutlinedIcon sx={{ fill: "#00FFFF" }} /> },
 ]
