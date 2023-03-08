@@ -6,7 +6,7 @@ export const spotifyApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://spotify81.p.rapidapi.com",
     headers: {
-      "X-RapidAPI-Key": "1cfed548c6msh03827b7f2d7e802p1307d0jsned496e327d03",
+      "X-RapidAPI-Key": "ea914ea896msh94f546fe0e85896p1e986ajsn86f8b9163431",
       "X-RapidAPI-Host": "spotify81.p.rapidapi.com",
     },
   }),
